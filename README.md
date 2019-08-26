@@ -1,0 +1,1 @@
+Homework challenge for an online Algorithm Design and Analysis from UPen Engineering, I was tasked with creating two implementations of the kth_smallest algorith. The first uses mergesort to sort the list and extract the k-1 index in O(1) time. The second method uses quickSelect. (The course is in Java however I'm writing everything in Python!)
