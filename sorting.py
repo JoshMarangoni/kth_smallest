@@ -1,18 +1,27 @@
 class Sorting:
-  def mergesort(self, arr):
-    if len(arr) <= 1: 
-      return arr
 
-    mid = len(arr) // 2
+  def mergesort(self, arr):
+    return self._mergesort(arr, len(arr)-1, 0)
+
+  def _mergesort(self, arr, hi, lo):
+    if hi-lo <= 1:
+      return
+
+    mid = (hi+lo) // 2
+
+    self._mergesort(arr, mid, lo)
+    self._mergesort(arr, hi, mid+1)
     
-    left = self.mergesort(arr[:mid])
-    right = self.mergesort(arr[mid:])
-    
-    return self.merge(left, right)
+    c = self.merge(arr[lo:mid], arr[mid:hi])
+    index=lo
+    for num in c: 
+      arr[index] = num
+      index+=1
 
   def merge(self, a, b):
     c = []
     i = j = 0
+    
     while i < len(a) and j < len(b): 
       if a[i] < b[j]: 
         c.append(a[i])
@@ -24,9 +33,11 @@ class Sorting:
       c.append(a[i])  
       i += 1
     while j < len(b): 
-      c.append(b[j])  
+      c.append(b[j])
       j += 1
+    
     return c
+    
 
   # find the kth smallest using quickselect
   def quickSelect(self, arr, k): 
@@ -69,4 +80,11 @@ class Sorting:
 
 
 arr = [1,7,3,2,6,8,4]
+#Sorting().mergesort(arr)
+#print(arr) 
+
+
+a = [1,6,2,7]
+b = [3,8,9]
+print(Sorting().merge(a,b))
 
