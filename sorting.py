@@ -1,7 +1,5 @@
 class Sorting:
-
   def mergesort(self, arr):
-
     if len(arr) <= 1:
       return
 
